@@ -1,6 +1,7 @@
-import {createRequest, createResponse} from 'node-mocks-http';
-import eventsGetAll from '../../../../src/middleware/api/eventsGetAll';
-import * as eventsService from '../../../../src/services/events';
+const {createRequest, createResponse} = require('node-mocks-http');
+const eventsGetAll = require('../../../../src/middleware/api/eventsGetAll');
+const eventsService = require('../../../../src/services/events');
+const sinon = require('sinon');
 
 describe('eventsGetAll()', () => {
     let fakeRequest;

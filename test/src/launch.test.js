@@ -1,4 +1,7 @@
-import proxyquire from 'proxyquire';
+const proxyquire = require('proxyquire');
+const sinon = require('sinon');
+const chai = require("chai");
+const expect = chai.expect;
 
 describe('Express server', () => {
     let stubExpress;
@@ -51,17 +54,17 @@ describe('Express server', () => {
 
     it('should setup default route', () => {
         server.start();
-        spyExpressGet.should.have.been.calledWithExactly('/', spyHomepage);
+        spyExpressGet.calledWithExactly('/', spyHomepage);
     });
 
     it('should setup login route', () => {
         server.start();
-        spyExpressGet.should.have.been.calledWithExactly('/login', spyLogin);
+        spyExpressGet.calledWithExactly('/login', spyLogin);
     });
 
     it('should setup dashboard route', () => {
         server.start();
-        spyExpressGet.should.have.been.calledWithExactly(
+        spyExpressGet.calledWithExactly(
             '/dashboard',
             spyAuthenticate,
             spyDashboard
@@ -70,12 +73,12 @@ describe('Express server', () => {
 
     it('should listen on default port 7080', () => {
         server.start();
-        stubExpressListen.should.have.been.calledWithExactly(7080, sinon.match.func);
+        stubExpressListen.calledWithExactly(7080, sinon.match.func);
     });
 
     it('should listen on expected port if passed', () => {
         const expectedPort = 8888;
         server.start(expectedPort);
-        stubExpressListen.should.have.been.calledWithExactly(expectedPort, sinon.match.func);
+        stubExpressListen.calledWithExactly(expectedPort, sinon.match.func);
     });
 });

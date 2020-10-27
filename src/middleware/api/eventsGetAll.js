@@ -1,4 +1,4 @@
-import * as events from '../../services/events';
+const events = require('../../services/events');
 
 const eventsGetAll = (request, response) => {
     const renderJsonResponse = (dataObject, success = true) => {
@@ -22,4 +22,4 @@ const eventsGetAll = (request, response) => {
         });
 };
 
-export default eventsGetAll;
+module.exports = eventsGetAll;

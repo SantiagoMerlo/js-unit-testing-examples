@@ -22,4 +22,4 @@ function promiseTest(request, response) {
         });
 }
 
-export default promiseTest;
+module.exports = promiseTest;

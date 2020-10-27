@@ -1,5 +1,5 @@
-import express from 'express';
-import eventsGetAll from '../middleware/api/eventsGetAll';
+const express = require('express');
+const eventsGetAll = require('../middleware/api/eventsGetAll');
 
 const router = express.Router();
 
@@ -18,4 +18,4 @@ router.get('/events', eventsGetAll);
 // - Add DELETE to delete single data element /events/:id - 200/404
 // - Add authentication - basic auth - 'auth' -> 'key:' (no password) + base64 encoded - 401 if failed
 
-export default router;
+module.exports = router;

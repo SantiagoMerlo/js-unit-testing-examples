@@ -1,11 +1,11 @@
-import express from 'express';
+const express = require('express');
 
-import homepage from './middleware/homepage';
-import login from './middleware/login';
-import authenticate from './middleware/authenticate';
-import dashboard from './middleware/dashboard';
-import promiseTest from './middleware/promiseTest';
-import apiRoutes from './routes/api';
+const homepage = require('./middleware/homepage');
+const login = require('./middleware/login');
+const authenticate  = require('./middleware/authenticate');
+const dashboard = require('./middleware/dashboard');
+const promiseTest = require('./middleware/promiseTest');
+const apiRoutes = require('./routes/api');
 
 function setupRoutes(app) {
     app.get('/', homepage);
@@ -31,6 +31,6 @@ function start(port = 7080) {
     return server;
 }
 
-export {
+module.exports = {
     start
 };

@@ -1,9 +1,9 @@
-import fakeData from '../data/fakeData';
+const fakeData = require('../data/fakeData');
 
 const getAll = () => {
     return Promise.resolve(fakeData.events);
 };
 
-export {
+module.exports = {
     getAll
 };

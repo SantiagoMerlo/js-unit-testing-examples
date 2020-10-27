@@ -1,4 +1,6 @@
-import * as eventsService from '../../../../src/services/events';
+const eventsService = require('../../../../src/services/events');
+const chai = require("chai");
+const expect = chai.expect;
 
 describe('events service', () => {
     describe('getAll()', () => {

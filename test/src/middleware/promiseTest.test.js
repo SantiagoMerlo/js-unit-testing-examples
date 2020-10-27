@@ -1,5 +1,8 @@
-import {createRequest, createResponse} from 'node-mocks-http';
-import promiseTest from '../../../src/middleware/promiseTest';
+const {createRequest, createResponse} = require('node-mocks-http');
+const promiseTest = require('../../../src/middleware/promiseTest');
+const sinon = require('sinon');
+const chai = require("chai");
+const expect = chai.expect;
 
 describe('promiseTest middleware', () => {
     let fakeRequest;
@@ -25,8 +28,8 @@ describe('promiseTest middleware', () => {
 
         return promiseTest(fakeRequest, fakeResponse)
             .then(() => {
-                expect(stubResponseJson)
-                    .to.have.been.calledWithExactly(expectedJson);
+                expect(stubResponseJson);
+                sinon.spy().calledWithExactly(expectedJson);
             });
     });
 
@@ -40,7 +43,7 @@ describe('promiseTest middleware', () => {
         return promiseTest(fakeRequest, fakeResponse)
             .then(() => {
                 expect(stubResponseJson)
-                    .to.have.been.calledWithExactly(expectedJson);
+                sinon.spy().calledWithExactly(expectedJson);
             });
     });
 });

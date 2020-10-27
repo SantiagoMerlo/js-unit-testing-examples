@@ -4,4 +4,4 @@ function authenticate(request, response, next) {
     next();
 }
 
-export default authenticate;
+module.exports = authenticate;
